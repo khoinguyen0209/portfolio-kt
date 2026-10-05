@@ -1,0 +1,30 @@
+{
+  "5": [
+    {
+      "src": "/images/p5-drawings.webp",
+      "width": 1545,
+      "height": 438
+    }
+  ],
+  "7": [
+    {
+      "src": "/images/p7-drawings.webp",
+      "width": 690,
+      "height": 2415
+    }
+  ],
+  "10": [
+    {
+      "src": "/images/p10-drawings.webp",
+      "width": 825,
+      "height": 1305
+    }
+  ],
+  "14": [
+    {
+      "src": "/images/p14-drawings.webp",
+      "width": 840,
+      "height": 1320
+    }
+  ]
+}

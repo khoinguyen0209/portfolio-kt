@@ -11,7 +11,7 @@ npm run dev
 
 Production: `npm run build` then `npm start`. Local URL: http://localhost:3000.
 
-Set `SITE_URL` to the public HTTPS origin before a production build so Open Graph image URLs resolve to the deployed domain. No domain was supplied; local development defaults to http://localhost:3000. Deploy on a Node-compatible Next.js host.
+Set `SITE_URL` to the public HTTPS origin before a production build. The default is the existing deployment `https://portfolio-kt-nu.vercel.app`, so Open Graph URLs remain valid when the environment variable is missing. Change it for another domain. Deploy on a Node-compatible Next.js host.
 
 ## Update content
 
@@ -19,15 +19,17 @@ Set `SITE_URL` to the public HTTPS origin before a production build so Open Grap
 - `src/data/assets.json`: original embedded PDF images, grouped by source page.
 - `src/data/drawings.json`: cropped renderings of vector sketches on PDF pages 5, 7, 10, and 14. These are artwork crops, not page screenshots.
 - `public/images`: optimized WebP assets. Preserve width and height in the asset manifests.
-- `src/app/page.tsx`: introduction, About, experience, and expertise.
-- `src/components/portfolio.tsx`: navigation, project cards, shared story layout, contact, and footer.
-- `src/components/gallery.tsx`: native-dialog image viewer with enlarged inspection and previous/next controls.
-- `src/app/globals.css`: palette, editorial grid, typography, breakpoints, focus states, and reduced-motion support.
+- `src/app/page.tsx`: four composed project spreads, catalogue, About, experience, and expertise. The featured selection remains in `projects.ts`.
+- `src/data/art-direction.ts`: project-specific cover composition, gallery rhythm, palette, and optional detail image. Catalogue numbers follow the original project order; they do not imply product editions.
+- `src/components/portfolio.tsx`: navigation, catalogue labels, story layout, contact, and next-project navigation.
+- `src/components/gallery.tsx`: four gallery modes and native-dialog image viewer with zoom, arrow keys, previous/next controls, and Escape.
+- `src/components/exhibition-motion.tsx` and `src/app/template.tsx`: unobtrusive one-time image reveals and route entrance. Images remain visible without JavaScript and with reduced motion.
+- `src/app/globals.css`: restrained palette, self-hosted Manrope/Instrument Serif typography, editorial compositions, touch layouts, focus states, and reduced-motion support.
 - `public/khanh-tran-resume.pdf`: page 2 extracted directly from the supplied portfolio.
 
 ## Source and editorial decisions
 
-Reviewed all 36 PDF pages, including the closing blue page. The source is a physical/industrial product design portfolio, not a digital UX portfolio. Its identity uses pale blue, navy, clean sans-serif typography, generous white space, and a small flower motif. The website retains the blue and flower while introducing warm paper, restrained serif accents, asymmetrical project placement, and a dark contact section.
+Reviewed all 36 PDF pages, including the closing blue page. The source is a physical/industrial product design portfolio, not a digital UX portfolio. Its identity uses pale blue, navy, clean sans-serif typography, generous white space, and a small flower motif. The redesigned experience treats the work as an object catalogue: warm paper, charcoal, sparing oxide-red derived from the materials, oversized editorial type, technical numbering, varied object imagery, and a dark closing sheet. The PDF flower remains as a small maker's mark. The Igochi reference informed restraint, spatial tension, and world-building only; no assets, layout, wording, or interaction patterns were copied.
 
 Documented identity: Trần Huỳnh Khánh Trân; Product R&D Engineer / Product Designer at Maztermind, 2024–present; based in Ho Chi Minh City. Experience also includes Jelly Key, Ki Saigon / reborn.design, and freelance graphic design. Education, software, technical skills, phone, and email are drawn from page 2. No explicit total years of experience, social links, external CV link, or embedded PDF hyperlinks are supplied.
 
@@ -39,4 +41,4 @@ Source date discrepancies: Poker Chips is dated 2024 in the index and 2025 on it
 
 ## Verification
 
-`npm run build` performs production compilation and TypeScript checking. Browser review covers the home and project surfaces, all eleven shareable URLs, mobile overflow, metadata, image inspection, and next-project navigation. No Lighthouse score is claimed.
+`npm run build` performs production compilation and TypeScript checking. Browser review covers the homepage, all 11 static project routes at 320px, 768px, and 1440px, metadata and internal anchors, gallery keyboard navigation/zoom/focus restoration, route navigation, reduced-motion behavior, and one-time image reveals. Cached navigation may return HTTP 304; pages rendered successfully. No Lighthouse score is claimed.

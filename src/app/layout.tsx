@@ -1,9 +1,11 @@
 import type { Metadata } from 'next';
 import { Navigation, Footer } from '@/components/portfolio';
 import { ExhibitionMotion } from '@/components/exhibition-motion';
+import { SmoothScroll } from '@/components/smooth-scroll';
 import '@fontsource-variable/manrope';
 import '@fontsource/instrument-serif/400.css';
 import '@fontsource/instrument-serif/400-italic.css';
+import 'lenis/dist/lenis.css';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -14,5 +16,5 @@ export const metadata: Metadata = {
   twitter: { card: 'summary_large_image' },
 };
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="en"><body id="top"><a className="skip-link" href="#main">Skip to content</a><Navigation /><main id="main">{children}</main><Footer /><ExhibitionMotion /></body></html>;
+  return <html lang="en"><body id="top"><SmoothScroll /><a className="skip-link" href="#main">Skip to content</a><Navigation /><main id="main">{children}</main><Footer /><ExhibitionMotion /></body></html>;
 }

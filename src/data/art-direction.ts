@@ -8,8 +8,6 @@ type Treatment = {
   detail?: Asset;
 };
 
-// Presentation only. Catalogue numbers follow the existing project order,
-// not fabricated product model numbers or editions.
 export const treatments: Record<string, Treatment> = {
   'homo-sapiens': { layout: 'spread', tone: 'clay', galleries: ['study'], detail: images([5])[1] },
   'trong-dong': { layout: 'object', tone: 'silver', galleries: ['study', 'sequence'], detail: images([8])[6] },

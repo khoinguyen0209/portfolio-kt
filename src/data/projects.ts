@@ -56,5 +56,3 @@ export const projects: Project[] = [
     { eyebrow: '02 / SaiGon Entixie HAT 2023', title: 'A different kind of energy.', text: 'A colourful floral illustration anchors the tournament identity across a disc, promotional graphic, and event banner.', pages: [34] },
   ] },
 ];
-export const featured = ['homo-sapiens', 'trong-dong', 'artisan-keycaps', 'luxury-backgammon'];
-export const portrait = cover(2);
